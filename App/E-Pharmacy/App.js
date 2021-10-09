@@ -15,6 +15,7 @@ import TypePrescription from './components/TypePrescription';
 import OrderHome from './components/OrderHome';
 import Orders from './components/Orders';
 import AskHome from './components/AskHome';
+import OrderView from './components/OrderView';
 
 export default function App() {
 
@@ -29,6 +30,7 @@ export default function App() {
         <Stack.Screen name="AskQuestions" component={AskQuestions}/>
         <Stack.Screen name="Orders" component={Orders}/>
         <Stack.Screen name="AskHome" component={AskHome}/>
+        <Stack.Screen name="OrderView" component={OrderView}/>
       </Stack.Navigator>
    </NavigationContainer>
   );

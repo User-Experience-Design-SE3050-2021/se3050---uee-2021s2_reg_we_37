@@ -18,11 +18,11 @@ function  Orders(props){
             source={order}
             />
 
-            <Pressable style={styles.btn} onPress={() => Alert.alert('Simple Button pressed')}>
+            <Pressable style={styles.btn} onPress={() => props.navigation.navigate('OrderView')}>
                 <Text style={styles.btntxt}>Order HN00023</Text>
             </Pressable>
 
-            <Pressable style={styles.btn} onPress={() => Alert.alert('Simple Button pressed')}>
+            <Pressable style={styles.btn} onPress={() => props.navigation.navigate('OrderView')}>
                 <Text style={styles.btntxt}>Order HN00022</Text>
             </Pressable>
            
