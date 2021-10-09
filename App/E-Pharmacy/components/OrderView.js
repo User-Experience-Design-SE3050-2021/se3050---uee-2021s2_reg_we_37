@@ -7,7 +7,11 @@ import { useFonts, Pacifico_400Regular } from '@expo-google-fonts/pacifico';
 
 function OrderView(props) {
     
-
+  function Payment()
+  {
+    props.navigation.navigate(Payment);
+  }
+  
     let [fontsLoaded] = useFonts({
         Pacifico_400Regular,
       });
@@ -21,7 +25,8 @@ function OrderView(props) {
             <Text style = {styles.name}>Detailed view of your order</Text>
 
             <Pressable style={styles.btn} onPress={() => props.navigation.navigate('')}>
-                <Text style={styles.btntxt}>Pay</Text>
+                <Text onPress={Payment}
+                style={styles.btntxt}>Pay</Text>
             </Pressable>
 
         </View>
