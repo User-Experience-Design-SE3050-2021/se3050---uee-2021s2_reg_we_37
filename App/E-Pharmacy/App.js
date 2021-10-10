@@ -28,6 +28,7 @@ import Payment from './components/Payment';
 
 //IT19243672
 //import address files
+import Address_Order from './screen/Address_Order';
 import Address from './screen/save_address';
 import Search_Address from './screen/search_addresses';
 //import order history files
@@ -56,11 +57,13 @@ export default function App() {
         <Stack.Screen name="TrackInfo" component={TrackInfo} />
         <Stack.Screen name="Payment" component={Payment} />
           
-          <Stack.Screen name="Address" component={Address} />
+        <Stack.Screen name="Address" component={Address} />
         <Stack.Screen name="Tree" component={Tree} />
         <Stack.Screen name="Search_Address" component={Search_Address} />
         <Stack.Screen name="PreOrder" component={PreOrder} />
         <Stack.Screen name="PostOrder" component={PostOrder} />
+        <Stack.Screen name="Address_Order" component={Address_Order} />
+
        
       </Stack.Navigator>
    </NavigationContainer>
