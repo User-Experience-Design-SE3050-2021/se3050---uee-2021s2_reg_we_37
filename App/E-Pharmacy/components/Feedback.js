@@ -5,24 +5,35 @@ import AppLoading from 'expo-app-loading';
 import { useFonts, Pacifico_400Regular } from '@expo-google-fonts/pacifico';
 
 import feedback from '../assets/feedback.jpg'
+import { Appbar } from 'react-native-paper';
 
 class Feedback extends Component {
 
+    // _goBack = (something) => {
+    //     console.log(something);
+    //   }
+     _goBack = () => this.props.navigation.navigate('Welcome');
     state = {  
         choosenIndex: 0  
     };  
+   
     render() {
     return (
+        <View>
+            <Appbar.Header  style={{backgroundColor:'#0FC1A7'}}>
+                <Appbar.BackAction onPress={this._goBack}/>
+                <Appbar.Content title="Feedback"/>
+            </Appbar.Header>
         <View style={styles.container}>
-
-            <Text style = {styles.name}>It's feedback time</Text>
         
-            <Image
-                style={styles.image}
-                source={feedback}
-            />
+        <Text style = {styles.name}>It's feedback time</Text>
+        
+        <Image
+            style={styles.image}
+            source={feedback}
+        />
 
-            <Text style = {styles.qoute}>We value your feedbacks as you. Please share your experience with us.</Text>
+        <Text style = {styles.qoute}>We value your feedbacks as you. Please share your experience with us.</Text>
 
 
             <Picker style={styles.pickerStyle}  
@@ -45,9 +56,10 @@ class Feedback extends Component {
                 multiline={true}
                 />
 
-            <Pressable style={styles.btn} onPress={() => Alert.alert('Simple Button pressed')}>
+            <Pressable style={styles.btn} onPress={() => props.navigation.navigate('')}>
                 <Text style={styles.btntxt}>Submit</Text>
             </Pressable>
+        </View>
         </View>
 
     )

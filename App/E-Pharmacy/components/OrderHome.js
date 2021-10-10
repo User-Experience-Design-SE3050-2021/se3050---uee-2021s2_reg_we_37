@@ -5,8 +5,11 @@ import AppLoading from 'expo-app-loading';
 import { useFonts, Pacifico_400Regular } from '@expo-google-fonts/pacifico';
 
 import pills from '../assets/pills.jpg'
+import { Appbar } from 'react-native-paper';
 
 function OrderHome(props) {
+
+    const _goBack = () => props.navigation.navigate('Welcome');
 
     let [fontsLoaded] = useFonts({
         Pacifico_400Regular,
@@ -14,8 +17,13 @@ function OrderHome(props) {
       if (!fontsLoaded) {
         return <AppLoading />;
       }
-
     return (
+
+        <View>
+            <Appbar.Header  style={{backgroundColor:'#0FC1A7'}}>
+                <Appbar.BackAction onPress={_goBack}/>
+                <Appbar.Content title="New Order"/>
+            </Appbar.Header>
         <View style={styles.container}>
 
         <Image
@@ -34,6 +42,7 @@ function OrderHome(props) {
                 <Text style={styles.btntxt}>Type Prescription</Text>
             </Pressable>
            
+        </View>
         </View>
 
     )

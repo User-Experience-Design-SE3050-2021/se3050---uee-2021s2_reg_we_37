@@ -4,11 +4,18 @@ import { createStackNavigator, createAppContainer, withOrientation } from 'react
 
 import plus from '../assets/plus.png'
 import order from '../assets/order.jfif'
+import { Appbar } from 'react-native-paper';
 
 
 function  Orders(props){
 
+    const _goBack = () => props.navigation.navigate('Welcome');
     return (
+        <View>
+            <Appbar.Header  style={{backgroundColor:'#0FC1A7'}}>
+                <Appbar.BackAction onPress={_goBack}/>
+                <Appbar.Content title="Orders"/>
+            </Appbar.Header>
         <View style={styles.container}>
 
         <Text style = {styles.name}>Hey Abarna! Here your orders</Text>
@@ -33,6 +40,7 @@ function  Orders(props){
         />
             </Pressable>
 
+        </View>
         </View>
 
     )

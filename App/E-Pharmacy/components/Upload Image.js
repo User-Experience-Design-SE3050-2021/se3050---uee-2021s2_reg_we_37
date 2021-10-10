@@ -3,11 +3,13 @@ import {View, ScrollView, Text, Button, StyleSheet} from 'react-native';
 import {Bubble, GiftedChat, Send} from 'react-native-gifted-chat';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { Appbar } from 'react-native-paper';
 import pills from '../assets/pills.jpg'
 
-const UploadImage = () => {
+const UploadImage = (props) => {
   const [messages, setMessages] = useState([]);
 
+  const _goBack = () => props.navigation.navigate('OrderHome');
   useEffect(() => {
     setMessages([
       {
@@ -112,19 +114,23 @@ const UploadImage = () => {
   }
 
   return (
-    <GiftedChat
-      messages={messages}
-      onSend={(messages) => onSend(messages)}
-      user={{
-        _id: 2,
-      }}
-      renderBubble={renderBubble}
-      alwaysShowSend
-      renderSend={renderSend}
-      renderAvatar={null}
-      scrollToBottom
-      scrollToBottomComponent={scrollToBottomComponent}
-    />
+
+      <><Appbar.Header style={{ backgroundColor: '#0FC1A7' }}>
+      <Appbar.BackAction onPress={_goBack} />
+      <Appbar.Content title="New Order" />
+    </Appbar.Header><GiftedChat
+        messages={messages}
+        onSend={(messages) => onSend(messages)}
+        user={{
+          _id: 2,
+        }}
+        renderBubble={renderBubble}
+        alwaysShowSend
+        renderSend={renderSend}
+        renderAvatar={null}
+        scrollToBottom
+        scrollToBottomComponent={scrollToBottomComponent} /></>
+  
   );
 };
 

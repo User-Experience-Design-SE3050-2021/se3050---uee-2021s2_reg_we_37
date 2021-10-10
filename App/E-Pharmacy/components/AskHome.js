@@ -5,6 +5,7 @@ import AppLoading from 'expo-app-loading';
 import { useFonts, Pacifico_400Regular } from '@expo-google-fonts/pacifico';
 
 import ask from '../assets/ask.jpg'
+import { Appbar } from 'react-native-paper';
 
 function AskHome(props) {
 
@@ -14,8 +15,13 @@ function AskHome(props) {
       if (!fontsLoaded) {
         return <AppLoading />;
       }
-
+      const _goBack = () => props.navigation.navigate('Welcome');
     return (
+        <View>
+            <Appbar.Header  style={{backgroundColor:'#0FC1A7'}}>
+                <Appbar.BackAction onPress={_goBack}/>
+                <Appbar.Content title="Ask Questions"/>
+            </Appbar.Header>
         <View style={styles.container}>
         
             <Text style = {styles.name}>Hey Abarna!</Text>
@@ -32,7 +38,7 @@ function AskHome(props) {
             </Pressable>
            
         </View>
-
+        </View>
     )
   }
 

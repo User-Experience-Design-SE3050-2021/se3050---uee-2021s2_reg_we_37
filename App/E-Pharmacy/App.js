@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="ChatHome">
+      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="ChatHome">
         <Stack.Screen name="Welcome" component={ChatHome}/>
         <Stack.Screen name="OrderHome" component={OrderHome}/>
         <Stack.Screen name="UploadImage" component={UploadImage}/>

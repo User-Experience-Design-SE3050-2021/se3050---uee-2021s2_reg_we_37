@@ -3,9 +3,12 @@ import {View, ScrollView, Text, Button, StyleSheet} from 'react-native';
 import {Bubble, GiftedChat, Send} from 'react-native-gifted-chat';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { Appbar } from 'react-native-paper';
 
-const TypePrescription = () => {
+const TypePrescription = (props) => {
   const [messages, setMessages] = useState([]);
+
+  const _goBack = () => props.navigation.navigate('OrderHome');
 
   useEffect(() => {
     setMessages([
@@ -112,6 +115,10 @@ const TypePrescription = () => {
   }
 
   return (
+    <><Appbar.Header style={{ backgroundColor: '#0FC1A7' }}>
+        <Appbar.BackAction onPress={_goBack} />
+        <Appbar.Content title="New Order" />
+      </Appbar.Header>
     <GiftedChat
       messages={messages}
       onSend={(messages) => onSend(messages)}
@@ -124,7 +131,7 @@ const TypePrescription = () => {
       renderAvatar={null}
       scrollToBottom
       scrollToBottomComponent={scrollToBottomComponent}
-    />
+    /></>
   );
 };
 

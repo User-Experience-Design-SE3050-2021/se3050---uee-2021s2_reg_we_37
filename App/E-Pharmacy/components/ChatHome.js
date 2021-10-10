@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Button, View, Text, Image, StyleSheet, Pressable} from 'react-native';
+import { Button, View, Text, Image, StyleSheet, Pressable, ViewBase} from 'react-native';
 
 import AppLoading from 'expo-app-loading';
 import { useFonts, Pacifico_400Regular } from '@expo-google-fonts/pacifico';
+import { Appbar } from 'react-native-paper';
 
 import common from '../assets/common.jpg'
 
@@ -16,9 +17,18 @@ function ChatHome(props) {
         return <AppLoading />;
       }
 
+      
+
     return (
+        
+        <View>
+            <Appbar.Header  style={{backgroundColor:'#0FC1A7'}}>
+                <Appbar.Action  icon="menu"/>
+                <Appbar.Content title="Welcome"/>
+            </Appbar.Header>
         <View style={styles.container}>
 
+        
             <Text style = {styles.name}>Welcome Abarna!</Text>
 
             <Image
@@ -44,6 +54,7 @@ function ChatHome(props) {
                 <Text style={styles.btntxt}>Feedback</Text>
             </Pressable>
            
+        </View>
         </View>
 
     )
